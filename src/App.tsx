@@ -8,6 +8,7 @@ import VantazhnykyPage from "./pages/VantazhnykyPage";
 import PerevezennyaPage from "./pages/PerevezennyaPage";
 import ElektrykPage from "./pages/ElektrykPage";
 import SantehnikPage from "./pages/SantehnikPage";
+import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/vantagniki" element={<VantazhnykyPage />} />
           <Route path="/perevezennya" element={<PerevezennyaPage />} />
           <Route path="/elektryk" element={<ElektrykPage />} />
