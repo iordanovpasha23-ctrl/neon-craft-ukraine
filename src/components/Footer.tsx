@@ -20,6 +20,7 @@ const Footer = () => {
               <Link to="/perevezennya" className="text-muted-foreground text-sm hover:text-primary transition-colors">Міжміські перевезення</Link>
               <Link to="/elektryk" className="text-muted-foreground text-sm hover:text-primary transition-colors">Електрик</Link>
               <Link to="/santehnik" className="text-muted-foreground text-sm hover:text-primary transition-colors">Сантехнік</Link>
+              <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors">Про нас</Link>
             </div>
           </div>
           <div>

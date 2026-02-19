@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Перевезення", href: "/perevezennya" },
   { label: "Електрик", href: "/elektryk" },
   { label: "Сантехнік", href: "/santehnik" },
+  { label: "Про нас", href: "/about" },
 ];
 
 const Navbar = () => {
