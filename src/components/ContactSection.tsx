@@ -37,7 +37,7 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.service || !form.pointA || !form.pointB || !form.name || !form.phone) return;
+    if (!form.service || !form.name || !form.phone) return;
 
     const serviceLabel = serviceOptions.find((o) => o.value === form.service)?.label ?? form.service;
     const message = [
@@ -156,7 +156,6 @@ const ContactSection = () => {
                   <input
                     type="text"
                     placeholder="Адреса або опис (відкуди)"
-                    required
                     value={form.pointA}
                     onChange={(e) => setForm({ ...form, pointA: e.target.value })}
                     className={inputClass}
@@ -189,7 +188,6 @@ const ContactSection = () => {
                   <input
                     type="text"
                     placeholder="Адреса або опис (куди)"
-                    required
                     value={form.pointB}
                     onChange={(e) => setForm({ ...form, pointB: e.target.value })}
                     className={inputClass}
