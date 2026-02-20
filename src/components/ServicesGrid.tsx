@@ -7,7 +7,7 @@ const services = [
     icon: Truck,
     title: "Вантажники",
     description: "Професійні вантажники для квартирних, офісних та складських переїздів.",
-    price: "від 350 грн/год",
+    price: "від 300 грн/год",
     href: "/vantagniki",
     color: "green" as const,
   },

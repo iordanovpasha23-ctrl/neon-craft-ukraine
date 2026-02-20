@@ -7,7 +7,7 @@ const VantazhnykyCalc = () => {
   const [hasElevator, setHasElevator] = useState(true);
 
   const total = useMemo(() => {
-    let cost = 350 * workers * hours;
+    let cost = 300 * workers * hours;
     if (!hasElevator && floor > 1) {
       cost += 15 * (floor - 1);
     }
