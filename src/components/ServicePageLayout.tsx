@@ -60,14 +60,14 @@ const ServicePageLayout = ({
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="tel:+380991234567"
+              href="tel:+380933956399"
               className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
             >
               Замовити зараз
             </a>
-            <a href="tel:+380991234567" className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue">
+            <a href="tel:+380933956399" className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue">
               <Phone className="w-6 h-6" />
-              099-123-45-67
+              093 395 6399
             </a>
           </motion.div>
         </div>
@@ -96,7 +96,7 @@ const ServicePageLayout = ({
       <section className="py-12">
         <div className="container text-center">
           <a
-            href="tel:+380991234567"
+            href="tel:+380933956399"
             className="inline-flex items-center gap-3 bg-secondary text-secondary-foreground font-display font-bold px-8 py-4 rounded-lg glow-blue-strong hover:scale-105 transition-transform"
           >
             <Phone className="w-5 h-5" />
@@ -136,7 +136,7 @@ const ServicePageLayout = ({
       <section className="py-12 industrial-gradient">
         <div className="container text-center">
           <a
-            href="tel:+380991234567"
+            href="tel:+380933956399"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
           >
             Замовити зараз

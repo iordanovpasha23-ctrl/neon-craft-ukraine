@@ -265,7 +265,7 @@ const AboutPage = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="tel:+380991234567"
+              href="tel:+380933956399"
               className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform animate-glow-pulse"
             >
               <Phone className="w-5 h-5" />

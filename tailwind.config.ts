@@ -129,6 +129,7 @@ export default {
         "counter-up": "counter-up 0.3s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        "glow-pulse-slow": "glow-pulse 6s ease-in-out infinite",
       },
     },
   },

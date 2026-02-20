@@ -1,16 +1,82 @@
 import { Phone, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const serviceOptions = [
+  { value: "kvartyru", label: "Квартирний переїзд" },
+  { value: "ofis", label: "Офісний переїзд" },
+  { value: "promyslovyi", label: "Промисловий переїзд" },
+  { value: "vantazhnyky", label: "Послуги вантажників" },
+  { value: "riznorobochi", label: "Послуги різноробочих" },
+  { value: "avto", label: "Мені потрібен тільки автомобіль" },
+];
+
+const inputClass =
+  "w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-secondary focus:glow-blue transition-all";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({
+    service: "",
+    pointA: "",
+    elevatorA: true,
+    pointB: "",
+    elevatorB: true,
+    cargo: "",
+    name: "",
+    phone: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.service || !form.pointA || !form.pointB || !form.name || !form.phone) return;
+
+    const serviceLabel = serviceOptions.find((o) => o.value === form.service)?.label ?? form.service;
+    const message = [
+      "🔔 Нова заявка!",
+      "",
+      `Послуга: ${serviceLabel}`,
+      `Точка А: ${form.pointA}`,
+      `Ліфт А: ${form.elevatorA ? "Так" : "Ні"}`,
+      `Точка Б: ${form.pointB}`,
+      `Ліфт Б: ${form.elevatorB ? "Так" : "Ні"}`,
+      `Груз: ${form.cargo || "—"}`,
+      `Ім'я: ${form.name}`,
+      `Телефон: ${form.phone}`,
+    ].join("\n");
+
+    const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN ?? "8483400716:AAGgdLOQFUwVvPfQPhBq1hYXAVevUyiW6iY";
+    const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID ?? "2050553430";
+
+    try {
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message }),
+      });
+    } catch (err) {
+      console.error("Telegram send error:", err);
+    }
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
-    setForm({ name: "", phone: "", message: "" });
+    setForm({
+      service: "",
+      pointA: "",
+      elevatorA: true,
+      pointB: "",
+      elevatorB: true,
+      cargo: "",
+      name: "",
+      phone: "",
+    });
   };
 
   return (
@@ -34,11 +100,11 @@ const ContactSection = () => {
           >
             <div className="text-center mb-8">
               <a
-                href="tel:+380991234567"
+                href="tel:+380933956399"
                 className="inline-flex items-center gap-3 text-secondary text-2xl font-bold text-glow-blue animate-neon-flicker"
               >
                 <Phone className="w-7 h-7" />
-                099-123-45-67
+                093 395 6399
               </a>
             </div>
 
@@ -48,30 +114,122 @@ const ContactSection = () => {
                 <p className="text-muted-foreground">Ми зв'яжемося з вами найближчим часом.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Ваше ім'я"
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-secondary focus:glow-blue transition-all"
-                />
-                <input
-                  type="tel"
-                  placeholder="Номер телефону"
-                  required
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-secondary focus:glow-blue transition-all"
-                />
-                <textarea
-                  placeholder="Короткий опис завдання"
-                  rows={3}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-secondary focus:glow-blue transition-all resize-none"
-                />
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">Послуга</label>
+                  <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
+                    <SelectTrigger className={inputClass + " h-12"}>
+                      <SelectValue placeholder="Оберіть послугу" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions.map((opt) => (
+                        <SelectItem key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">Точка А</label>
+                  <input
+                    type="text"
+                    placeholder="Адреса або опис (відкуди)"
+                    required
+                    value={form.pointA}
+                    onChange={(e) => setForm({ ...form, pointA: e.target.value })}
+                    className={inputClass}
+                  />
+                  <div className="flex items-center gap-3 mt-2">
+                    <span className="text-sm text-muted-foreground">Є ліфт?</span>
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, elevatorA: true })}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        form.elevatorA ? "bg-primary text-primary-foreground" : "bg-muted/50 text-muted-foreground"
+                      }`}
+                    >
+                      Так
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, elevatorA: false })}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        !form.elevatorA ? "bg-primary text-primary-foreground" : "bg-muted/50 text-muted-foreground"
+                      }`}
+                    >
+                      Ні
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">Точка Б</label>
+                  <input
+                    type="text"
+                    placeholder="Адреса або опис (куди)"
+                    required
+                    value={form.pointB}
+                    onChange={(e) => setForm({ ...form, pointB: e.target.value })}
+                    className={inputClass}
+                  />
+                  <div className="flex items-center gap-3 mt-2">
+                    <span className="text-sm text-muted-foreground">Є ліфт?</span>
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, elevatorB: true })}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        form.elevatorB ? "bg-primary text-primary-foreground" : "bg-muted/50 text-muted-foreground"
+                      }`}
+                    >
+                      Так
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, elevatorB: false })}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        !form.elevatorB ? "bg-primary text-primary-foreground" : "bg-muted/50 text-muted-foreground"
+                      }`}
+                    >
+                      Ні
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">Груз (необов'язково)</label>
+                  <textarea
+                    placeholder="Опис вантажу, габарити, особливості"
+                    rows={2}
+                    value={form.cargo}
+                    onChange={(e) => setForm({ ...form, cargo: e.target.value })}
+                    className={inputClass + " resize-none"}
+                  />
+                </div>
+
+                <div className="border-t border-border pt-4 space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground/80 mb-2">Контактні дані</label>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Ваше ім'я"
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className={inputClass}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Номер телефону"
+                    required
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className={inputClass}
+                  />
+                </div>
+
                 <button
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-display font-bold text-sm uppercase tracking-wider py-4 rounded-lg glow-blue-strong hover:scale-[1.02] transition-transform"

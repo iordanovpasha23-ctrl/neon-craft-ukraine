@@ -28,8 +28,8 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               Одеса • Київ • Дніпро • Львів • Харків
             </p>
-            <a href="tel:+380991234567" className="block mt-4 text-primary font-bold text-glow-green">
-              099-123-45-67
+            <a href="tel:+380933956399" className="block mt-4 text-primary font-bold text-glow-green">
+              093 395 6399
             </a>
           </div>
         </div>

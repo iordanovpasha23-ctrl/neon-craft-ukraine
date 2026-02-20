@@ -7,9 +7,9 @@ const VantazhnykyCalc = () => {
   const [hasElevator, setHasElevator] = useState(true);
 
   const total = useMemo(() => {
-    let cost = 450 * workers * hours;
+    let cost = 350 * workers * hours;
     if (!hasElevator && floor > 1) {
-      cost += 100 * (floor - 1);
+      cost += 15 * (floor - 1);
     }
     return cost;
   }, [workers, hours, floor, hasElevator]);
@@ -24,13 +24,13 @@ const VantazhnykyCalc = () => {
           <input
             type="range"
             min={1}
-            max={6}
+            max={20}
             value={workers}
             onChange={(e) => setWorkers(Number(e.target.value))}
             className="w-full accent-primary"
           />
           <div className="flex justify-between text-xs text-muted-foreground mt-1">
-            <span>1</span><span>6</span>
+            <span>1</span><span>20</span>
           </div>
         </div>
 

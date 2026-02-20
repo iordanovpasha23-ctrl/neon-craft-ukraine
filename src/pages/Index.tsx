@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import WhyUs from "@/components/WhyUs";
 import Reviews from "@/components/Reviews";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import StickyCallButton from "@/components/StickyCallButton";
 
@@ -15,7 +14,6 @@ const Index = () => {
       <ServicesGrid />
       <WhyUs />
       <Reviews />
-      <ContactSection />
       <Footer />
       <StickyCallButton />
     </div>
