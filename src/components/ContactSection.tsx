@@ -24,6 +24,7 @@ const inputClass =
 const ContactSection = () => {
   const [form, setForm] = useState({
     service: "",
+    workers: 2,
     pointA: "",
     elevatorA: true,
     pointB: "",
@@ -43,6 +44,7 @@ const ContactSection = () => {
       "🔔 Нова заявка!",
       "",
       `Послуга: ${serviceLabel}`,
+      `Вантажники: ${form.workers}`,
       `Точка А: ${form.pointA}`,
       `Ліфт А: ${form.elevatorA ? "Так" : "Ні"}`,
       `Точка Б: ${form.pointB}`,
@@ -69,6 +71,7 @@ const ContactSection = () => {
     setTimeout(() => setSubmitted(false), 3000);
     setForm({
       service: "",
+      workers: 2,
       pointA: "",
       elevatorA: true,
       pointB: "",
@@ -129,6 +132,23 @@ const ContactSection = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">
+                    Кількість вантажників: <span className="text-primary font-bold">{form.workers}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={1}
+                    max={20}
+                    value={form.workers}
+                    onChange={(e) => setForm({ ...form, workers: Number(e.target.value) })}
+                    className="w-full accent-primary"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>1</span><span>20</span>
+                  </div>
                 </div>
 
                 <div>
