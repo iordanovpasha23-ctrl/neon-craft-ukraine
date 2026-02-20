@@ -18,8 +18,8 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               <Link to="/vantagniki" className="text-muted-foreground text-sm hover:text-primary transition-colors">Вантажники</Link>
               <Link to="/perevezennya" className="text-muted-foreground text-sm hover:text-primary transition-colors">Міжміські перевезення</Link>
-              <Link to="/elektryk" className="text-muted-foreground text-sm hover:text-primary transition-colors">Електрик</Link>
-              <Link to="/santehnik" className="text-muted-foreground text-sm hover:text-primary transition-colors">Сантехнік</Link>
+              <Link to="/plytka" className="text-muted-foreground text-sm hover:text-primary transition-colors">Плиточник</Link>
+              <Link to="/natsteli" className="text-muted-foreground text-sm hover:text-primary transition-colors">Натяжні стелі</Link>
               <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors">Про нас</Link>
             </div>
           </div>
