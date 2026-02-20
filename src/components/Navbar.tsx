@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "Вантажники", href: "/vantagniki" },
   { label: "Перевезення", href: "/perevezennya" },
-  { label: "Електрик", href: "/elektryk" },
-  { label: "Сантехнік", href: "/santehnik" },
+  { label: "Плиточник", href: "/plytka" },
+  { label: "Натяжні стелі", href: "/natsteli" },
   { label: "Про нас", href: "/about" },
 ];
 

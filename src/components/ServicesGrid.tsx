@@ -1,4 +1,4 @@
-import { Truck, MapPin, Zap, Wrench } from "lucide-react";
+import { Truck, MapPin, Grid3X3, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -20,19 +20,19 @@ const services = [
     color: "blue" as const,
   },
   {
-    icon: Zap,
-    title: "Електрик",
-    description: "Аварійний виїзд та монтаж електромереж.",
-    price: "від 600 грн",
-    href: "/elektryk",
+    icon: Grid3X3,
+    title: "Плиточник",
+    description: "Професійна кладка плитки та керамограніту з ідеальною геометрією.",
+    price: "від 450 грн/м²",
+    href: "/plytka",
     color: "green" as const,
   },
   {
-    icon: Wrench,
-    title: "Сантехнік",
-    description: "Усунення протікань, монтаж сантехніки, прочистка.",
-    price: "від 550 грн",
-    href: "/santehnik",
+    icon: Layers,
+    title: "Натяжні стелі",
+    description: "Монтаж натяжних стель під ключ за 1 день.",
+    price: "від 350 грн/м²",
+    href: "/natsteli",
     color: "blue" as const,
   },
 ];
