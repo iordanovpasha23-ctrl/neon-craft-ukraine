@@ -1,123 +1,21 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Truck, Users, Zap, FileCheck, CreditCard, Globe } from "lucide-react";
+import { Phone, Truck, Zap, FileCheck, CreditCard, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyCallButton from "@/components/StickyCallButton";
 import VantazhnykyCalc from "@/components/calculators/VantazhnykyCalc";
 import ContactSection from "@/components/ContactSection";
-
-type Lang = "ua" | "ru";
-
-const t = {
-  ua: {
-    heroLabel: "Професійні вантажники",
-    heroTitle1: "Ваш надійний помічник",
-    heroTitle2: "у переїзді",
-    heroDesc: "З нами переїзд стає не тільки простішим, а й дешевшим.",
-    orderNow: "Замовити зараз",
-    yearsWork: "років роботи",
-    happyClients: "задоволених клієнтів",
-    dispatchTime: "хв — час виїзду",
-    sectionTitle: "Що ми",
-    sectionTitleAccent: "пропонуємо",
-    pricesTitle: "Ціни",
-    calcTitle: "Калькулятор",
-    calcAccent: "вартості",
-    services: [
-      "Квартирні переїзди будь-якої складності",
-      "Офісні переїзди з розбиранням та збиранням меблів",
-      "Складські роботи та завантаження фур",
-      "Піднімання та спуск важких предметів",
-      "Перенесення піаніно, сейфів, обладнання",
-      "Пакування та захист речей при переїзді",
-    ],
-    benefits: [
-      { title: "Швидкий виїзд бригади", desc: "Вантажники приїжджають протягом 60 хвилин у будь-яке місто." },
-      { title: "Офіційний договір", desc: "Фіксуємо умови співпраці та гарантуємо збереження вантажу." },
-      { title: "Зручна оплата", desc: "Готівка, картка, безготівка — обирайте комфортний спосіб." },
-      { title: "Досвідчені фахівці", desc: "Професійні мувери з необхідними навичками та обладнанням." },
-    ],
-    priceBlocks: [
-      { label: "1 вантажник / год", price: "300 грн" },
-      { label: "2 вантажники / год", price: "600 грн" },
-      { label: "Поверх без ліфта", price: "+15 грн" },
-      { label: "Мінімальне замовлення", price: "2 години" },
-    ],
-  },
-  ru: {
-    heroLabel: "Профессиональные грузчики",
-    heroTitle1: "Ваш надёжный помощник",
-    heroTitle2: "в переезде",
-    heroDesc: "С нами переезд становится не только проще, но и дешевле.",
-    orderNow: "Заказать сейчас",
-    yearsWork: "лет работы",
-    happyClients: "довольных клиентов",
-    dispatchTime: "мин — время выезда",
-    sectionTitle: "Что мы",
-    sectionTitleAccent: "предлагаем",
-    pricesTitle: "Цены",
-    calcTitle: "Калькулятор",
-    calcAccent: "стоимости",
-    services: [
-      "Квартирные переезды любой сложности",
-      "Офисные переезды с разборкой и сборкой мебели",
-      "Складские работы и загрузка фур",
-      "Подъём и спуск тяжёлых предметов",
-      "Перенос пианино, сейфов, оборудования",
-      "Упаковка и защита вещей при переезде",
-    ],
-    benefits: [
-      { title: "Быстрый выезд бригады", desc: "Грузчики приезжают в течение 60 минут в любой город." },
-      { title: "Официальный договор", desc: "Фиксируем условия сотрудничества и гарантируем сохранность груза." },
-      { title: "Удобная оплата", desc: "Наличные, карта, безналичный — выбирайте удобный способ." },
-      { title: "Опытные специалисты", desc: "Профессиональные муверы с необходимыми навыками и оборудованием." },
-    ],
-    priceBlocks: [
-      { label: "1 грузчик / час", price: "300 грн" },
-      { label: "2 грузчика / час", price: "600 грн" },
-      { label: "Этаж без лифта", price: "+15 грн" },
-      { label: "Минимальный заказ", price: "2 часа" },
-    ],
-  },
-};
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 const benefitIcons = [Zap, FileCheck, CreditCard, Users];
 
 const VantazhnykyPage = () => {
-  const [lang, setLang] = useState<Lang>("ua");
-  const c = t[lang];
+  const { lang } = useLanguage();
+  const c = translations[lang].vantagniki;
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
-      {/* Language toggle */}
-      <div className="fixed top-20 right-4 z-50">
-        <div className="glass-panel rounded-full flex items-center gap-1 p-1 border border-border/50">
-          <Globe className="w-4 h-4 text-muted-foreground ml-2" />
-          <button
-            onClick={() => setLang("ua")}
-            className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              lang === "ua"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            UA
-          </button>
-          <button
-            onClick={() => setLang("ru")}
-            className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              lang === "ru"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            RU
-          </button>
-        </div>
-      </div>
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pb-24 hero-gradient overflow-hidden">
@@ -166,7 +64,6 @@ const VantazhnykyPage = () => {
             ))}
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

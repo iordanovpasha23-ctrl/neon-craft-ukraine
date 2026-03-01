@@ -1,20 +1,22 @@
 import { Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 const cities = ["Одеса", "Київ", "Дніпро", "Львів", "Харків"];
 
 const Hero = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang].hero;
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background layers */}
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 grid-overlay" />
       </div>
 
-      {/* Floating decorative elements */}
       <div className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg animate-float opacity-30" />
       <div className="absolute bottom-1/3 right-16 w-16 h-16 border border-secondary/20 rounded-full animate-float-reverse opacity-20" />
       <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-primary rounded-full animate-pulse-glow" />
@@ -26,9 +28,9 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 text-glow-green text-primary">
-            Надійні послуги
+            {t.title1}
             <br />
-            <span className="text-foreground">у вашому місті</span>
+            <span className="text-foreground">{t.title2}</span>
           </h1>
         </motion.div>
 
@@ -38,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
         >
-          Швидко. Професійно. Без зайвих слів. Виїзд майстра протягом 60 хвилин у будь-яке місто.
+          {t.desc}
         </motion.p>
 
         <motion.div
@@ -51,7 +53,7 @@ const Hero = () => {
             href="tel:+380933956399"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold text-lg px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform duration-300 animate-glow-pulse-slow"
           >
-            Замовити зараз
+            {t.orderNow}
           </a>
           <a
             href="tel:+380933956399"

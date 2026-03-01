@@ -2,17 +2,20 @@ import { Phone, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 const navLinks = [
-  { label: "Вантажники", href: "/vantagniki" },
-  { label: "Перевезення", href: "/perevezennya" },
-  { label: "Плиточник", href: "/plytka" },
-  { label: "Натяжні стелі", href: "/natsteli" },
-  { label: "Про нас", href: "/about" },
+  { key: "vantagniki" as const, href: "/vantagniki" },
+  { key: "perevezennya" as const, href: "/perevezennya" },
+  { key: "plytka" as const, href: "/plytka" },
+  { key: "natsteli" as const, href: "/natsteli" },
+  { key: "about" as const, href: "/about" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { lang } = useLanguage();
+  const t = translations[lang].nav;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-panel-strong">
@@ -29,7 +32,7 @@ const Navbar = () => {
               to={l.href}
               className="font-body text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-300 tracking-wide uppercase"
             >
-              {l.label}
+              {t[l.key]}
             </Link>
           ))}
           <a
@@ -64,7 +67,7 @@ const Navbar = () => {
                   onClick={() => setOpen(false)}
                   className="font-body text-sm font-medium text-foreground/70 hover:text-primary transition-colors uppercase tracking-wide py-2"
                 >
-                  {l.label}
+                  {t[l.key]}
                 </Link>
               ))}
               <a

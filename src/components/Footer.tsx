@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang].footer;
+  const nav = translations[lang].nav;
+
   return (
     <footer className="border-t border-border py-12 industrial-gradient">
       <div className="container">
@@ -10,23 +15,23 @@ const Footer = () => {
               СЕРВІС<span className="text-secondary">ПРО</span>
             </Link>
             <p className="text-muted-foreground text-sm mt-3 leading-relaxed">
-              Надійні послуги у 5 містах України. Працюємо швидко та професійно.
+              {t.desc}
             </p>
           </div>
           <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-wider mb-4 text-foreground/80">Послуги</h4>
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider mb-4 text-foreground/80">{t.servicesTitle}</h4>
             <div className="flex flex-col gap-2">
-              <Link to="/vantagniki" className="text-muted-foreground text-sm hover:text-primary transition-colors">Вантажники</Link>
-              <Link to="/perevezennya" className="text-muted-foreground text-sm hover:text-primary transition-colors">Міжміські перевезення</Link>
-              <Link to="/plytka" className="text-muted-foreground text-sm hover:text-primary transition-colors">Плиточник</Link>
-              <Link to="/natsteli" className="text-muted-foreground text-sm hover:text-primary transition-colors">Натяжні стелі</Link>
-              <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors">Про нас</Link>
+              <Link to="/vantagniki" className="text-muted-foreground text-sm hover:text-primary transition-colors">{nav.vantagniki}</Link>
+              <Link to="/perevezennya" className="text-muted-foreground text-sm hover:text-primary transition-colors">{nav.perevezennya}</Link>
+              <Link to="/plytka" className="text-muted-foreground text-sm hover:text-primary transition-colors">{nav.plytka}</Link>
+              <Link to="/natsteli" className="text-muted-foreground text-sm hover:text-primary transition-colors">{nav.natsteli}</Link>
+              <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors">{nav.about}</Link>
             </div>
           </div>
           <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-wider mb-4 text-foreground/80">Міста</h4>
+            <h4 className="font-display text-sm font-bold uppercase tracking-wider mb-4 text-foreground/80">{t.citiesTitle}</h4>
             <p className="text-muted-foreground text-sm">
-              Одеса • Київ • Дніпро • Львів • Харків
+              {t.cities}
             </p>
             <a href="tel:+380933956399" className="block mt-4 text-primary font-bold text-glow-green">
               093 395 6399
@@ -35,7 +40,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-border pt-6 text-center">
           <p className="text-muted-foreground text-xs">
-            © 2024 СервісПро. Усі права захищені.
+            {t.rights}
           </p>
         </div>
       </div>
