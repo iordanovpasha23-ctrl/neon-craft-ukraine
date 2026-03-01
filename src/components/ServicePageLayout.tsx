@@ -5,6 +5,7 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import StickyCallButton from "./StickyCallButton";
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 interface FAQItem {
   q: string;
@@ -12,23 +13,15 @@ interface FAQItem {
 }
 
 interface ServicePageLayoutProps {
-  title: string;
-  subtitle: string;
-  services: string[];
-  priceBlocks: { label: string; price: string }[];
+  pageKey: "perevezennya" | "plytka" | "natsteli";
   calculator: ReactNode;
-  faqs: FAQItem[];
 }
 
-const ServicePageLayout = ({
-  title,
-  subtitle,
-  services,
-  priceBlocks,
-  calculator,
-  faqs,
-}: ServicePageLayoutProps) => {
+const ServicePageLayout = ({ pageKey, calculator }: ServicePageLayoutProps) => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { lang } = useLanguage();
+  const t = translations[lang][pageKey];
+  const lt = translations[lang].layout;
 
   return (
     <div className="min-h-screen bg-background">
@@ -43,7 +36,7 @@ const ServicePageLayout = ({
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-black text-primary text-glow-green mb-4"
           >
-            {title}
+            {t.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +44,7 @@ const ServicePageLayout = ({
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8"
           >
-            {subtitle}
+            {t.subtitle}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +56,7 @@ const ServicePageLayout = ({
               href="tel:+380933956399"
               className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
             >
-              Замовити зараз
+              {lt.orderNow}
             </a>
             <a href="tel:+380933956399" className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue">
               <Phone className="w-6 h-6" />
@@ -77,11 +70,11 @@ const ServicePageLayout = ({
       <section className="py-16 industrial-gradient">
         <div className="container max-w-3xl">
           <h2 className="font-display text-2xl md:text-4xl font-bold mb-8 text-center">
-            Що ми <span className="text-primary text-glow-green">пропонуємо</span>
+            {lt.whatWeOffer} <span className="text-primary text-glow-green">{lt.whatWeOfferAccent}</span>
           </h2>
           <div className="glass-panel neon-border-green rounded-xl p-6 md:p-8">
             <ul className="space-y-3">
-              {services.map((s, i) => (
+              {t.services.map((s, i) => (
                 <li key={i} className="flex items-start gap-3 text-foreground/80">
                   <span className="mt-1.5 w-2 h-2 shrink-0 rounded-full bg-primary" />
                   <span>{s}</span>
@@ -100,7 +93,7 @@ const ServicePageLayout = ({
             className="inline-flex items-center gap-3 bg-secondary text-secondary-foreground font-display font-bold px-8 py-4 rounded-lg glow-blue-strong hover:scale-105 transition-transform"
           >
             <Phone className="w-5 h-5" />
-            Зателефонувати зараз
+            {lt.callNow}
           </a>
         </div>
       </section>
@@ -109,10 +102,10 @@ const ServicePageLayout = ({
       <section className="py-16 industrial-gradient">
         <div className="container max-w-3xl">
           <h2 className="font-display text-2xl md:text-4xl font-bold mb-8 text-center">
-            <span className="text-secondary text-glow-blue">Ціни</span>
+            <span className="text-secondary text-glow-blue">{lt.prices}</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {priceBlocks.map((p, i) => (
+            {t.priceBlocks.map((p, i) => (
               <div key={i} className="glass-panel neon-border-blue rounded-xl p-5 text-center">
                 <div className="text-foreground/80 text-sm mb-2">{p.label}</div>
                 <div className="font-display text-xl font-bold text-secondary text-glow-blue">{p.price}</div>
@@ -126,7 +119,7 @@ const ServicePageLayout = ({
       <section className="py-16">
         <div className="container max-w-2xl">
           <h2 className="font-display text-2xl md:text-4xl font-bold mb-8 text-center">
-            Калькулятор <span className="text-primary text-glow-green">вартості</span>
+            {lt.calcTitle} <span className="text-primary text-glow-green">{lt.calcAccent}</span>
           </h2>
           {calculator}
         </div>
@@ -139,7 +132,7 @@ const ServicePageLayout = ({
             href="tel:+380933956399"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
           >
-            Замовити зараз
+            {lt.orderNow}
           </a>
         </div>
       </section>
@@ -148,10 +141,10 @@ const ServicePageLayout = ({
       <section className="py-16">
         <div className="container max-w-3xl">
           <h2 className="font-display text-2xl md:text-4xl font-bold mb-8 text-center">
-            Часті <span className="text-secondary text-glow-blue">питання</span>
+            {lt.faqTitle} <span className="text-secondary text-glow-blue">{lt.faqAccent}</span>
           </h2>
           <div className="space-y-3">
-            {faqs.map((faq, i) => (
+            {t.faqs.map((faq, i) => (
               <div key={i} className="glass-panel rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
