@@ -13,7 +13,7 @@ interface FAQItem {
 }
 
 interface ServicePageLayoutProps {
-  pageKey: "perevezennya" | "plytka" | "natsteli";
+  pageKey: "perevezennya" | "elektryka" | "natsteli";
   calculator: ReactNode;
 }
 

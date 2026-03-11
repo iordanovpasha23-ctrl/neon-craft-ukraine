@@ -1,4 +1,4 @@
-import { Truck, MapPin, Grid3X3, Layers } from "lucide-react";
+import { Truck, MapPin, Zap, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage, translations } from "@/contexts/LanguageContext";

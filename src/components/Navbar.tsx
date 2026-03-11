@@ -7,7 +7,7 @@ import { useLanguage, translations } from "@/contexts/LanguageContext";
 const navLinks = [
   { key: "vantagniki" as const, href: "/vantagniki" },
   { key: "perevezennya" as const, href: "/perevezennya" },
-  { key: "plytka" as const, href: "/plytka" },
+  { key: "elektryka" as const, href: "/elektryka" },
   { key: "natsteli" as const, href: "/natsteli" },
   { key: "about" as const, href: "/about" },
 ];
