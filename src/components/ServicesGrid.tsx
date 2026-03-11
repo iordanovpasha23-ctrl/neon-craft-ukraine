@@ -1,10 +1,10 @@
-import { Truck, MapPin, Grid3X3, Layers } from "lucide-react";
+import { Truck, MapPin, Zap, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage, translations } from "@/contexts/LanguageContext";
 
-const icons = [Truck, MapPin, Grid3X3, Layers];
-const hrefs = ["/vantagniki", "/perevezennya", "/plytka", "/natsteli"];
+const icons = [Truck, MapPin, Zap, Layers];
+const hrefs = ["/vantagniki", "/perevezennya", "/elektryka", "/natsteli"];
 const colors = ["green", "blue", "green", "blue"] as const;
 
 const ServicesGrid = () => {

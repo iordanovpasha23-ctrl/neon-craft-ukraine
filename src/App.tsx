@@ -8,7 +8,7 @@ import LanguageToggle from "@/components/LanguageToggle";
 import Index from "./pages/Index";
 import VantazhnykyPage from "./pages/VantazhnykyPage";
 import PerevezennyaPage from "./pages/PerevezennyaPage";
-import PlytkaPage from "./pages/PlytkaPage";
+import ElektrykaPage from "./pages/ElektrykaPage";
 import NatSteliPage from "./pages/NatSteliPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
@@ -28,7 +28,7 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/vantagniki" element={<VantazhnykyPage />} />
             <Route path="/perevezennya" element={<PerevezennyaPage />} />
-            <Route path="/plytka" element={<PlytkaPage />} />
+            <Route path="/elektryka" element={<ElektrykaPage />} />
             <Route path="/natsteli" element={<NatSteliPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
