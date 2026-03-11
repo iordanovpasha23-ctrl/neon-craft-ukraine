@@ -72,16 +72,16 @@ const ServicePageLayout = ({ pageKey, calculator }: ServicePageLayoutProps) => {
           <h2 className="font-display text-2xl md:text-4xl font-bold mb-8 text-center">
             {lt.whatWeOffer} <span className="text-primary text-glow-green">{lt.whatWeOfferAccent}</span>
           </h2>
-          <div className="glass-panel neon-border-green rounded-xl p-6 md:p-8">
-            <ul className="space-y-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {t.services.map((s, i) => (
-                <li key={i} className="flex items-start gap-3 text-foreground/80">
-                  <span className="mt-1.5 w-2 h-2 shrink-0 rounded-full bg-primary" />
-                  <span>{s}</span>
-                </li>
+                <div key={i} className="glass-panel neon-border-green rounded-xl p-4 text-center flex flex-col items-center gap-2">
+                  <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span className="text-lg">⚡</span>
+                  </span>
+                  <span className="text-foreground/80 text-sm font-medium">{s}</span>
+                </div>
               ))}
-            </ul>
-          </div>
+            </div>
         </div>
       </section>
 
