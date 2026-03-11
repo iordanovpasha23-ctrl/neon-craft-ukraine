@@ -29,7 +29,6 @@ export const translations = {
       perevezennya: "Перевезення",
       elektryka: "Електрика",
       natsteli: "Натяжні стелі",
-      natsteli: "Натяжні стелі",
       about: "Про нас",
     },
     // Hero (index)
