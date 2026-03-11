@@ -27,7 +27,8 @@ export const translations = {
     nav: {
       vantagniki: "Вантажники",
       perevezennya: "Перевезення",
-      plytka: "Плиточник",
+      elektryka: "Електрика",
+      natsteli: "Натяжні стелі",
       natsteli: "Натяжні стелі",
       about: "Про нас",
     },
