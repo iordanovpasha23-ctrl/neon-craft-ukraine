@@ -6,6 +6,7 @@ import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 const navLinks = [
   { key: "vantagniki" as const, href: "/vantagniki" },
+  { key: "vantagnikiKyiv" as const, href: "/vantagniki-kyiv" },
   { key: "perevezennya" as const, href: "/perevezennya" },
   { key: "elektryka" as const, href: "/elektryka" },
   { key: "natsteli" as const, href: "/natsteli" },

@@ -26,6 +26,7 @@ export const translations = {
     // Navbar
     nav: {
       vantagniki: "Вантажники",
+      vantagnikiKyiv: "Вантажники Київ",
       perevezennya: "Перевезення",
       elektryka: "Електрика",
       natsteli: "Натяжні стелі",
