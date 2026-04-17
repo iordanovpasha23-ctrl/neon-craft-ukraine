@@ -106,7 +106,7 @@ const NatSteljCalc = () => {
           {total.toLocaleString("uk-UA")} грн
         </motion.div>
         <a
-          href="tel:+380933956399"
+          href="tel:+380738827086"
           className="mt-6 inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
         >
           <Phone className="w-5 h-5" />

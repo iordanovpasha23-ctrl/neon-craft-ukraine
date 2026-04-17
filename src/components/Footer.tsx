@@ -33,8 +33,8 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               {t.cities}
             </p>
-            <a href="tel:+380933956399" className="block mt-4 text-primary font-bold text-glow-green">
-              093 395 6399
+            <a href="tel:+380738827086" className="block mt-4 text-primary font-bold text-glow-green">
+              073 882 7086
             </a>
           </div>
         </div>
