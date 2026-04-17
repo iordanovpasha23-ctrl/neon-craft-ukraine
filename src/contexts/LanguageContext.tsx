@@ -297,6 +297,7 @@ export const translations = {
   ru: {
     nav: {
       vantagniki: "Грузчики",
+      vantagnikiKyiv: "Грузчики Киев",
       perevezennya: "Перевозки",
       elektryka: "Электрика",
       natsteli: "Натяжные потолки",
