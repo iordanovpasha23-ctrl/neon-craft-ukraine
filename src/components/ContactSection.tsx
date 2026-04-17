@@ -88,11 +88,11 @@ const ContactSection = () => {
           >
             <div className="text-center mb-8">
               <a
-                href="tel:+380933956399"
+                href="tel:+380738827086"
                 className="inline-flex items-center gap-3 text-secondary text-2xl font-bold text-glow-blue animate-neon-flicker"
               >
                 <Phone className="w-7 h-7" />
-                093 395 6399
+                073 882 7086
               </a>
             </div>
 

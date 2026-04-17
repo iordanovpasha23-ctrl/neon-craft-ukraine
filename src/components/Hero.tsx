@@ -50,17 +50,17 @@ const Hero = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
         >
           <a
-            href="tel:+380933956399"
+            href="tel:+380738827086"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold text-lg px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform duration-300 animate-glow-pulse-slow"
           >
             {t.orderNow}
           </a>
           <a
-            href="tel:+380933956399"
+            href="tel:+380738827086"
             className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue animate-neon-flicker"
           >
             <Phone className="w-6 h-6" />
-            093 395 6399
+            073 882 7086
           </a>
         </motion.div>
 

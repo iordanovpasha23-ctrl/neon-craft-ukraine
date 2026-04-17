@@ -200,7 +200,7 @@ const ElektrykaCalc = () => {
           )}
 
           <a
-            href="tel:+380933956399"
+            href="tel:+380738827086"
             className="w-full flex items-center justify-center gap-3 bg-primary text-primary-foreground font-display font-bold px-6 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform"
           >
             <Phone className="w-5 h-5" />
