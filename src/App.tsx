@@ -11,6 +11,8 @@ import PerevezennyaPage from "./pages/PerevezennyaPage";
 import ElektrykaPage from "./pages/ElektrykaPage";
 import NatSteliPage from "./pages/NatSteliPage";
 import AboutPage from "./pages/AboutPage";
+import WhatsappPage from "./pages/WhatsappPage";
+import PhotoPage from "./pages/PhotoPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/perevezennya" element={<PerevezennyaPage />} />
             <Route path="/elektryka" element={<ElektrykaPage />} />
             <Route path="/natsteli" element={<NatSteliPage />} />
+            <Route path="/whatsapp" element={<WhatsappPage />} />
+            <Route path="/photo" element={<PhotoPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
