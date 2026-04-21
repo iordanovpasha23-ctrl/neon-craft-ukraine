@@ -7,7 +7,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import Index from "./pages/Index";
 import VantazhnykyPage from "./pages/VantazhnykyPage";
-import VantazhnykyKyivPage from "./pages/VantazhnykyKyivPage";
 import PerevezennyaPage from "./pages/PerevezennyaPage";
 import ElektrykaPage from "./pages/ElektrykaPage";
 import NatSteliPage from "./pages/NatSteliPage";
@@ -28,7 +27,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/vantagniki" element={<VantazhnykyPage />} />
-            <Route path="/vantagniki-kyiv" element={<VantazhnykyKyivPage />} />
             <Route path="/perevezennya" element={<PerevezennyaPage />} />
             <Route path="/elektryka" element={<ElektrykaPage />} />
             <Route path="/natsteli" element={<NatSteliPage />} />
