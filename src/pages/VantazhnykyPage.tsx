@@ -93,6 +93,12 @@ const VantazhnykyPage = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
+            <a
+              href="tel:+380738827086"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold text-lg px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform duration-300 animate-glow-pulse-slow"
+            >
+              {c.orderNow}
+            </a>
             <a href="tel:+380738827086" className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue">
               <Phone className="w-6 h-6" />
               073 882 7086
