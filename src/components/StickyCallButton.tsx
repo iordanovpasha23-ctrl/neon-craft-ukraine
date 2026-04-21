@@ -13,7 +13,7 @@ const StickyCallButton = () => {
         <Send className="w-6 h-6" />
       </a>
       <a
-        href="https://wa.me/380738827086"
+        href="https://wa.me/380933956399"
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 rounded-full bg-[hsl(142,70%,45%)] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"

@@ -54,14 +54,17 @@ const VantazhnykyPage = () => {
             transition={{ delay: 0.25 }}
             className="flex items-center justify-center gap-3 md:gap-5 flex-wrap mb-6"
           >
-            {["ОДЕСА", "КИЇВ", "ДНІПРО", "ЛЬВІВ", "ХАРКІВ"].map((city, i) => (
-              <span key={city} className="flex items-center gap-3 md:gap-5">
-                <span className="font-display text-sm md:text-base font-semibold text-foreground/60 tracking-widest uppercase">
-                  {city}
+            {(() => {
+              const list = ["ОДЕСА", "КИЇВ", "ЛЬВІВ"];
+              return list.map((city, i) => (
+                <span key={city} className="flex items-center gap-3 md:gap-5">
+                  <span className="font-display text-sm md:text-base font-semibold text-foreground/60 tracking-widest uppercase">
+                    {city}
+                  </span>
+                  {i < list.length - 1 && <span className="w-1.5 h-1.5 rounded-full bg-primary/80" />}
                 </span>
-                {i < 4 && <span className="w-1.5 h-1.5 rounded-full bg-primary/80" />}
-              </span>
-            ))}
+              ));
+            })()}
           </motion.div>
 
           <motion.div
@@ -90,13 +93,6 @@ const VantazhnykyPage = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a
-              href="tel:+380738827086"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-display font-bold px-8 py-4 rounded-lg glow-green-strong hover:scale-105 transition-transform animate-glow-pulse-slow"
-            >
-              <Phone className="w-5 h-5" />
-              {c.orderNow}
-            </a>
             <a href="tel:+380738827086" className="inline-flex items-center gap-2 text-secondary font-bold text-xl text-glow-blue">
               <Phone className="w-6 h-6" />
               073 882 7086
